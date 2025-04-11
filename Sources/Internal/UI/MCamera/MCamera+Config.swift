@@ -24,5 +24,6 @@ extension MCamera { @MainActor class Config {
 
     // MARK: Others
     var appDelegate: MApplicationDelegate.Type? = nil
+    var originalOrientationLock: UIInterfaceOrientationMask = .all
     var isCameraConfigured: Bool = false
 }}
