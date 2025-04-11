@@ -19,6 +19,7 @@ extension AVCaptureDevice: CaptureDevice {
     var maxISO: Float { activeFormat.maxISO }
     var minFrameRate: Float64? { activeFormat.videoSupportedFrameRateRanges.first?.minFrameRate }
     var maxFrameRate: Float64? { activeFormat.videoSupportedFrameRateRanges.first?.maxFrameRate }
+    var isVideoHDRSupported: Bool { activeFormat.isVideoHDRSupported }
 }
 
 // MARK: Getters & Setters
@@ -34,6 +35,7 @@ extension AVCaptureDevice {
             else { return .off }
         }
         set {
+            guard isVideoHDRSupported else { return }
             automaticallyAdjustsVideoHDREnabled = newValue == .auto
             if newValue != .auto { isVideoHDREnabled = newValue == .on }
         }
