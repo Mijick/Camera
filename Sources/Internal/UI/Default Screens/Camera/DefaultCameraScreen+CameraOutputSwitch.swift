@@ -27,10 +27,22 @@ extension DefaultCameraScreen { struct CameraOutputSwitch: View {
 }}
 private extension DefaultCameraScreen.CameraOutputSwitch {
     func createOutputTypeButton(_ outputType: CameraOutputType) -> some View {
-        Button(icon: getOutputTypeButtonIcon(outputType), active: isOutputTypeButtonActive(outputType)) {
+        let a11yValue: LocalizedStringKey = switch outputType {
+            case .photo: "Photo"
+            case .video: "Video"
+        }
+        let a11yHint: LocalizedStringKey = switch outputType {
+            case .photo: "Switch to video mode"
+            case .video: "Switch to photo mode"
+        }
+        
+        return Button(icon: getOutputTypeButtonIcon(outputType), active: isOutputTypeButtonActive(outputType)) {
             parent.setOutputType(outputType)
         }
         .rotationEffect(parent.iconAngle)
+        .accessibilityLabel("Camera type")
+        .accessibilityValue(a11yValue)
+        .accessibilityHint(a11yHint)
     }
 }
 

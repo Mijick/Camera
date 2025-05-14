@@ -17,6 +17,8 @@ struct CloseButton: View {
 
     var body: some View {
         Button(action: action, label: createButtonLabel)
+            .accessibilityLabel("Close")
+            .accessibilityHint("Closes the camera")
     }
 }
 private extension CloseButton {
