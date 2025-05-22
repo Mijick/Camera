@@ -13,7 +13,7 @@ import CoreMotion
 import AVKit
 
 @MainActor class CameraManagerMotionManager {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var manager: CMMotionManager = .init()
 }
 

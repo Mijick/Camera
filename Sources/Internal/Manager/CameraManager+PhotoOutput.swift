@@ -12,7 +12,7 @@
 import AVKit
 
 @MainActor class CameraManagerPhotoOutput: NSObject {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var output: AVCapturePhotoOutput = .init()
 }
 

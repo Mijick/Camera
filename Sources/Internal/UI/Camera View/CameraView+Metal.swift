@@ -14,7 +14,7 @@ import MetalKit
 import AVKit
 
 @MainActor class CameraMetalView: MTKView {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var ciContext: CIContext!
     private(set) var commandQueue: MTLCommandQueue!
     private(set) var currentFrame: CIImage?
