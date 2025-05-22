@@ -12,7 +12,7 @@
 import Foundation
 
 @MainActor class CameraManagerNotificationCenter {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
 }
 
 // MARK: Setup
