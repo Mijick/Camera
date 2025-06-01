@@ -13,7 +13,7 @@ import CoreMotion
 import AVKit
 
 @MainActor class CameraManagerMotionManager {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var manager: CMMotionManager = .init()
 }
 
@@ -27,7 +27,7 @@ extension CameraManagerMotionManager {
 }
 private extension CameraManagerMotionManager {
     func handleAccelerometerUpdates(_ data: CMAccelerometerData?, _ error: Error?) {
-        guard let data, error == nil else { return }
+        guard let data, error == nil, parent != nil else { return }
 
         let newDeviceOrientation = getDeviceOrientation(data.acceleration)
         updateDeviceOrientation(newDeviceOrientation)

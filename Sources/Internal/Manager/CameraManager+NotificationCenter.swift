@@ -12,7 +12,7 @@
 import Foundation
 
 @MainActor class CameraManagerNotificationCenter {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
 }
 
 // MARK: Setup
@@ -24,6 +24,7 @@ extension CameraManagerNotificationCenter {
 }
 private extension CameraManagerNotificationCenter {
     @objc func handleSessionWasInterrupted() {
+        guard parent != nil else { return }
         parent.attributes.lightMode = .off
         parent.videoOutput.reset()
     }

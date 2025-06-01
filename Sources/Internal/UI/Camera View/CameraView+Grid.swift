@@ -12,7 +12,7 @@
 import SwiftUI
 
 class CameraGridView: UIView {
-    var parent: CameraManager!
+    weak var parent: CameraManager!
 }
 
 // MARK: Setup
