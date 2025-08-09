@@ -13,7 +13,17 @@ import AVKit
 
 extension AVCaptureSession: @unchecked @retroactive Sendable {}
 extension AVCaptureSession: CaptureSession {
-    var deviceInputs: [any CaptureDeviceInput] { inputs as? [any CaptureDeviceInput] ?? [] }
+    
+    var deviceInputs: [any CaptureDeviceInput] {
+        inputs as? [any CaptureDeviceInput] ?? []
+    }
+    
+    func setStabilizationLevel(_ level: AVCaptureVideoStabilizationMode) {
+        for connection in self.connections
+        where connection.isVideoStabilizationSupported {
+            connection.preferredVideoStabilizationMode = level
+        }
+    }
 }
 
 

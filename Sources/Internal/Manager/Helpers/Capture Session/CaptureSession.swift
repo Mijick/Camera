@@ -24,4 +24,5 @@ protocol CaptureSession: Sendable {
     func add(input: (any CaptureDeviceInput)?) throws(MCameraError)
     func remove(input: (any CaptureDeviceInput)?)
     func add(output: AVCaptureOutput?) throws(MCameraError)
+    func setStabilizationLevel(_ level: AVCaptureVideoStabilizationMode)
 }

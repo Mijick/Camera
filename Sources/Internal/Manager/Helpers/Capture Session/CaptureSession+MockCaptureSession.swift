@@ -12,7 +12,9 @@
 import AVKit
 
 extension MockCaptureSession: @unchecked Sendable {}
-class MockCaptureSession: NSObject, CaptureSession { required override init() {}
+class MockCaptureSession: NSObject, CaptureSession {
+    func setStabilizationLevel(_ level: AVCaptureVideoStabilizationMode) { }
+    required override init() {}
     // MARK: Attributes
     var isRunning: Bool { _isRunning }
     var deviceInputs: [any CaptureDeviceInput] { _deviceInputs }
