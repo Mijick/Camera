@@ -31,6 +31,7 @@ class MockCaptureDevice: NSObject, CaptureDevice {
     var hasTorch: Bool { true }
     var isExposurePointOfInterestSupported: Bool { true }
     var isFocusPointOfInterestSupported: Bool { true }
+    var isVideoHDRSupported: Bool { true }
 
     // MARK: Setters
     var videoZoomFactor: CGFloat = 1

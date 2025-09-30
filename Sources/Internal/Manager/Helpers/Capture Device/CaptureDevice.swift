@@ -31,6 +31,7 @@ protocol CaptureDevice: NSObject {
     var hasTorch: Bool { get }
     var isExposurePointOfInterestSupported: Bool { get }
     var isFocusPointOfInterestSupported: Bool { get }
+    var isVideoHDRSupported: Bool { get }
 
     // MARK: Getters & Setters
     var videoZoomFactor: CGFloat { get set }
