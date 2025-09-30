@@ -12,7 +12,7 @@
 import SwiftUI
 
 class CameraGridView: UIView {
-    var parent: CameraManager!
+    weak var parent: CameraManager?
 }
 
 // MARK: Setup
@@ -28,7 +28,7 @@ extension CameraGridView {
 extension CameraGridView {
     func setVisibility(_ isVisible: Bool) {
         UIView.animate(withDuration: 0.2) { self.alpha = isVisible ? 1 : 0 }
-        parent.attributes.isGridVisible = isVisible
+        parent?.attributes.isGridVisible = isVisible
     }
 }
 
