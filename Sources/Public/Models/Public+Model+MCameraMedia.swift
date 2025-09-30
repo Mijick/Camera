@@ -8,11 +8,22 @@
 //
 //  Copyright ©2024 Mijick. All rights reserved.
 
-
 import SwiftUI
 
 // MARK: Getters
 public extension MCameraMedia {
+    init?(data: Any?) {
+        if let image = data as? UIImage {
+            self.image = image
+            self.video = nil
+        } else if let video = data as? URL {
+            self.video = video
+            self.image = nil
+        } else {
+            return nil
+        }
+    }
+
     /**
      Gets the image from the media object.
      */

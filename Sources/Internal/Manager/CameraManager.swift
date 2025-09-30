@@ -151,13 +151,6 @@ extension CameraManager {
     }
 }
 
-// MARK: Set Captured Media
-extension CameraManager {
-    func setCapturedMedia(_ capturedMedia: MCameraMedia?) { withAnimation(.mSpring) {
-        attributes.capturedMedia = capturedMedia
-    }}
-}
-
 // MARK: Set Camera Output
 extension CameraManager {
     func setOutputType(_ outputType: CameraOutputType) {
