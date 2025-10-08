@@ -19,6 +19,8 @@ extension DefaultCameraScreen { struct CaptureButton: View {
 
     var body: some View {
         Button(action: action, label: createButtonLabel).buttonStyle(ButtonScaleStyle())
+            .accessibilityLabel("Take picture")
+            .accessibilityHint("Takes a picture with the camera")
     }
 }}
 private extension DefaultCameraScreen.CaptureButton {

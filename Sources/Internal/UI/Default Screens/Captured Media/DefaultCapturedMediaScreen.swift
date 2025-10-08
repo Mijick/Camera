@@ -69,6 +69,8 @@ private extension DefaultCapturedMediaScreen {
             action: retakeAction
         )
         .transition(.scale)
+        .accessibilityLabel("Retake")
+        .accessibilityHint("Retake the photo or video")
     }}
     @ViewBuilder func createSaveButton() -> some View { if isInitialized {
         BottomButton(
@@ -79,6 +81,8 @@ private extension DefaultCapturedMediaScreen {
             action: acceptMediaAction
         )
         .transition(.scale)
+        .accessibilityLabel("Accept")
+        .accessibilityHint("Accept the photo or video")
     }}
 }
 

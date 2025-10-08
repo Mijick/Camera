@@ -55,6 +55,9 @@ private extension DefaultCameraScreen.TopBar {
             iconRotationAngle: parent.iconAngle,
             action: changeGridVisibility
         )
+        .accessibilityLabel("Grid")
+        .accessibilityValue("\(parent.isGridVisible ? "on" : "off")")
+        .accessibilityHint("Turns the grid guide \(parent.isGridVisible ? "off" : "on")")
     }}
     @ViewBuilder func createFlipOutputButton() -> some View { if isFlipOutputButtonActive {
         DefaultCameraScreen.TopButton(
@@ -62,13 +65,29 @@ private extension DefaultCameraScreen.TopBar {
             iconRotationAngle: parent.iconAngle,
             action: changeMirrorOutput
         )
+        .accessibilityLabel("Flip output \(parent.isOutputMirrored ? "on" : "off")")
+        .accessibilityHint("Flips the camera output horizontally.")
     }}
     @ViewBuilder func createFlashButton() -> some View { if isFlashButtonActive {
+        let a11yHint: LocalizedStringKey = switch parent.flashMode {
+            case .off: "Turns the camera flash on"
+            case .on: "Sets the camera flash to auto"
+            case .auto: "Turns the camera flash off"
+        }
+        let a11yValue: LocalizedStringKey = switch parent.flashMode {
+            case .off: "off"
+            case .on: "on"
+            case .auto: "auto"
+        }
+        
         DefaultCameraScreen.TopButton(
             icon: flashButtonIcon,
             iconRotationAngle: parent.iconAngle,
             action: changeFlashMode
         )
+        .accessibilityLabel("Chnge flash mode")
+        .accessibilityHint(a11yHint)
+        .accessibilityValue(a11yValue)
     }}
 }
 

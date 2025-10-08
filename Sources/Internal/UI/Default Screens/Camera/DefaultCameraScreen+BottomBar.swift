@@ -49,6 +49,9 @@ private extension DefaultCameraScreen.BottomBar {
         )
         .frame(maxWidth: .infinity, alignment: .leading)
         .transition(.scale)
+        .accessibilityLabel("Camera light")
+        .accessibilityHint("Toggles the camera light on or off.")
+        .accessibilityValue(parent.lightMode == .on ? "On" : "Off")
     }}
     @ViewBuilder func createCaptureButton() -> some View { if isCaptureButtonActive {
         DefaultCameraScreen.CaptureButton(
@@ -68,6 +71,9 @@ private extension DefaultCameraScreen.BottomBar {
         )
         .frame(maxWidth: .infinity, alignment: .trailing)
         .transition(.scale)
+        .accessibilityLabel("Camera chooser")
+        .accessibilityHint("Switches between front and back cameras.")
+        .accessibilityValue(parent.cameraPosition == .front ? "Front camera" : "Back camera")
     }}
 }
 
