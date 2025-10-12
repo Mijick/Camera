@@ -154,6 +154,15 @@ public extension MCamera {
      If disabled, the camera will not record audio, and will not ask for permission to access the microphone.
      */
     func setAudioAvailability(_ isAvailable: Bool) -> Self { manager.attributes.isAudioSourceAvailable = isAvailable; return self }
+    
+    /**
+     By default, the camera system disables Stabilization.
+     
+     Setting all video connections to the desired AVCaptureVideoStabilizationMode.
+     Note: if the desired AVCaptureVideoStabilizationMode is not available, the system will fall back to .off.
+     It is recommended to perform a separate test for the highest available AVCaptureVideoStabilizationMode.
+     */
+    func setVideoStabilization(_ stabilizationLevel: AVCaptureVideoStabilizationMode) -> Self { manager.attributes.stabilizationLevel = stabilizationLevel; return self }
 
     /**
      Changes the initial camera zoom level.

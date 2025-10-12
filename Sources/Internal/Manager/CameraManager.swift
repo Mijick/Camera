@@ -58,6 +58,7 @@ extension CameraManager {
         setupCameraLayer()
         try setupDeviceInputs()
         try setupDeviceOutput()
+        setVideoStabilizationMode(parent: self)
         try setupFrameRecorder()
         notificationCenterManager.setup(parent: self)
         motionManager.setup(parent: self)
@@ -83,6 +84,9 @@ private extension CameraManager {
     func setupDeviceOutput() throws(MCameraError) {
         try photoOutput.setup(parent: self)
         try videoOutput.setup(parent: self)
+    }
+    func setVideoStabilizationMode(parent: CameraManager) {
+        captureSession.setStabilizationLevel(parent.attributes.stabilizationLevel)
     }
     func setupFrameRecorder() throws(MCameraError) {
         let captureVideoOutput = AVCaptureVideoDataOutput()

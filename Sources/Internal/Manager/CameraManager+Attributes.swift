@@ -18,6 +18,7 @@ struct CameraManagerAttributes {
     var outputType: CameraOutputType = .photo
     var cameraPosition: CameraPosition = .back
     var isAudioSourceAvailable: Bool = true
+    var stabilizationLevel: AVCaptureVideoStabilizationMode = .auto
     var zoomFactor: CGFloat = 1.0
     var flashMode: CameraFlashMode = .off
     var lightMode: CameraLightMode = .off
